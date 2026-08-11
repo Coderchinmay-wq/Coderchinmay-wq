@@ -1,12 +1,84 @@
+<div align="center">
+
+# Hi, I'm Chinmay 👋
+
+### Electronics & Communication Engineer | FPGA/VLSI | Embedded Systems | GenAI Explorer
+
+**Building hardware. Writing code. Connecting signals to intelligence.**
+
+<p>
+  <a href="www.linkedin.com/in/chinmay-yalawatti-938a8b312">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+  </a>
+  <a href="YOUR_PORTFOLIO_URL">
+    <img src="https://img.shields.io/badge/Portfolio-111111?style=for-the-badge&logo=vercel&logoColor=white"/>
+  </a>
+  <a href="mailto:yalawattichinmay@gmail.com">
+    <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/>
+  </a>
+</p>
+
+</div>
+
+---
 # 💫 About Me:
-Curious Engineer,  Ceritifed GenAI Explorer,  PCB Design
 
+I'm an **Electronics & Communication Engineering student** who enjoys working at the intersection of: Embedded Systems, FPGA & Digital Hardware, VLSI & RTL Design, Hardware Acceleration, Wireless & V2X Communication, AI / GenAI, Software & Programming I learn by **building, testing, breaking, debugging, and rebuilding**.
+My goal is to bridge the gap between **hardware and intelligent software** — from sensors and microcontrollers to FPGA accelerators and AI-driven systems.
 
-## 🌐 Socials:
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/www.linkedin.com/in/chinmay-yalawatti-938a8b312) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:yalawattichinmay@gmail.com) 
+---
 
-# 💻 Tech Stack:
-![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white) ![Notion](https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white) ![Portfolio](https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139) ![AMD](https://img.shields.io/badge/AMD-%23000000.svg?style=for-the-badge&logo=amd&logoColor=white)
+## 🔭 What I'm Working On
+
+```text
+Embedded Systems      ███████████████████░  Learning + Building
+FPGA / VLSI           ██████████████████░░  Building
+Python                ████████████████░░░░  Learning
+C / C++               ███████████████░░░░░  Improving
+AI / ML               ████████████░░░░░░░  Exploring
+5G / V2X              ███████████░░░░░░░░  Exploring
+DSA                   █████████░░░░░░░░░░  Improving
+
+```
+---
+
+# ⚙️ Tech Stack:
+### Programming
+<p>
+  <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white"/>
+  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Verilog-8B0000?style=for-the-badge"/>
+</p>
+
+### Hardware & Embedded
+ <p>
+  <img src="https://img.shields.io/badge/FPGA-000000?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Xilinx%20Vivado-E01F27?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Vitis%20HLS-E01F27?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/AMD-%23000000.svg?style=for-the-badge&logo=amd&logoColor=white"/>
+  <img src="https://img.shields.io/badge/AXI-6F42C1?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Zynq-FF6600?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/PYNQ-000000?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/ESP32-E7352C?style=for-the-badge&logo=espressif&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Arduino-00878F?style=for-the-badge&logo=arduino&logoColor=white"/>
+</p>
+
+### 💻Software & Tools
+<p>
+  <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
+  <img src="https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Proteus-1F4E79?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Canva-00C4CC?style=for-the-badge&logo=canva&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Notion-%23000000.svg?style=for-the-badge&logo=notion&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Portfolio-%23000000.svg?style=for-the-badge&logo=firefox&logoColor=#FF7139"/>
+</p>
+
+---
+
 # 📊 GitHub Stats:
 ![](https://github-readme-stats.vercel.app/api?username=Coderchinmay-wq&theme=dark&hide_border=false&include_all_commits=true&count_private=false)<br/>
 ![](https://nirzak-streak-stats.vercel.app/?user=Coderchinmay-wq&theme=dark&hide_border=false)<br/>
@@ -16,7 +88,4 @@ Curious Engineer,  Ceritifed GenAI Explorer,  PCB Design
 ![](https://github-contributor-stats.vercel.app/api?username=Coderchinmay-wq&limit=5&theme=dark&combine_all_yearly_contributions=true)
 
 ---
-[![](https://visitcount.itsvg.in/api?id=Coderchinmay-wq&icon=0&color=0)](https://visitcount.itsvg.in)
-
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
 
