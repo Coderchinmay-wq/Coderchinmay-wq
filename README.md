@@ -42,8 +42,8 @@ DSA                   █████████░░░░░░░░░░ 
 ```
 ---
 
-# ⚙️ Tech Stack:
-### Programming
+# 🧰 Tech Stack:
+### 💻Programming
 <p>
   <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white"/>
   <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
@@ -52,7 +52,7 @@ DSA                   █████████░░░░░░░░░░ 
   <img src="https://img.shields.io/badge/Verilog-8B0000?style=for-the-badge"/>
 </p>
 
-### Hardware & Embedded
+### ⚡Hardware & Embedded
  <p>
   <img src="https://img.shields.io/badge/FPGA-000000?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Xilinx%20Vivado-E01F27?style=for-the-badge"/>
@@ -65,7 +65,7 @@ DSA                   █████████░░░░░░░░░░ 
   <img src="https://img.shields.io/badge/Arduino-00878F?style=for-the-badge&logo=arduino&logoColor=white"/>
 </p>
 
-### 💻Software & Tools
+### 🛠️Software & Tools
 <p>
   <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
   <img src="https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white"/>
@@ -89,3 +89,24 @@ DSA                   █████████░░░░░░░░░░ 
 
 ---
 
+💡 My Engineering Philosophy
+
+I believe the best way to learn engineering is to move continuously between:
+
+Theory → Simulation → Hardware → Debugging → Optimization → Real-world Application
+
+🤝 Let's Connect
+
+I'm always interested in:
+
+Embedded Systems
+FPGA / VLSI
+AI + Hardware
+Robotics
+IoT
+Wireless Communication
+Open Source
+Hackathons
+Engineering collaborations
+<div align="center">
+⚡ Build. Break. Debug. Learn. Repeat.
