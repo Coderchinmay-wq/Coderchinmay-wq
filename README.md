@@ -83,7 +83,7 @@ DSA                   █████████░░░░░░░░░░ 
 
 <div align="center">
 
-<img src="./profile/streak.svg" alt="GitHub Contribution Streak" width="520"/>
+<img src="./profile/streak.svg" alt="GitHub Contribution Streak" width="760"/>
 
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Coderchinmay-wq&theme=tokyo-night&hide_border=true)
 
