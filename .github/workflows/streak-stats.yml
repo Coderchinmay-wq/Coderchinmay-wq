@@ -18,45 +18,136 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate streak SVG
+      - name: Generate fire-ring streak SVG
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_USER: ${{ github.repository_owner }}
         run: |
           python - <<'PY'
-          import os, json, urllib.request, datetime
+          import os, json, urllib.request, datetime, html
 
-          query = '''query($login:String!) { user(login:$login) { contributionsCollection { contributionCalendar { weeks { contributionDays { date contributionCount } } } } } }'''
-          payload = json.dumps({"query": query, "variables": {"login": os.environ["GH_USER"]}}).encode()
-          req = urllib.request.Request("https://api.github.com/graphql", data=payload, headers={"Authorization": "bearer " + os.environ["GH_TOKEN"], "Content-Type": "application/json", "User-Agent": "github-actions-streak-generator"})
-          with urllib.request.urlopen(req) as r:
-              data = json.load(r)
+          token = os.environ["GH_TOKEN"]
+          user = os.environ["GH_USER"]
+          endpoint = "https://api.github.com/graphql"
+          headers = {
+              "Authorization": "bearer " + token,
+              "Content-Type": "application/json",
+              "User-Agent": "github-actions-streak-generator"
+          }
 
-          days = []
-          for week in data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]:
-              days.extend(week["contributionDays"])
-          counts = {d["date"]: d["contributionCount"] for d in days}
+          def graphql(query, variables):
+              payload = json.dumps({"query": query, "variables": variables}).encode()
+              req = urllib.request.Request(endpoint, data=payload, headers=headers)
+              with urllib.request.urlopen(req) as r:
+                  result = json.load(r)
+              if result.get("errors"):
+                  raise RuntimeError(result["errors"])
+              return result["data"]
 
+          profile_query = '''query($login:String!) { user(login:$login) { createdAt } }'''
+          created = graphql(profile_query, {"login": user})["user"]["createdAt"][:10]
+          start = datetime.date.fromisoformat(created)
           today = datetime.date.today()
-          current = 0
+
+          query = '''query($login:String!, $from:DateTime!, $to:DateTime!) {
+            user(login:$login) {
+              contributionsCollection(from:$from, to:$to) {
+                contributionCalendar {
+                  totalContributions
+                  weeks { contributionDays { date contributionCount } }
+                }
+              }
+            }
+          }'''
+
+          counts = {}
+          total = 0
+          cursor = start
+          while cursor <= today:
+              chunk_end = min(cursor + datetime.timedelta(days=364), today)
+              data = graphql(query, {
+                  "login": user,
+                  "from": cursor.isoformat() + "T00:00:00Z",
+                  "to": chunk_end.isoformat() + "T23:59:59Z"
+              })
+              cal = data["user"]["contributionsCollection"]["contributionCalendar"]
+              total += cal["totalContributions"]
+              for week in cal["weeks"]:
+                  for day in week["contributionDays"]:
+                      counts[day["date"]] = day["contributionCount"]
+              cursor = chunk_end + datetime.timedelta(days=1)
+
+          # Current streak: today, or yesterday if today has no contribution yet.
           d = today
           if counts.get(d.isoformat(), 0) == 0:
               d -= datetime.timedelta(days=1)
+          current = 0
+          current_end = d
           while counts.get(d.isoformat(), 0) > 0:
               current += 1
               d -= datetime.timedelta(days=1)
+          current_start = d + datetime.timedelta(days=1) if current else today
 
+          # Longest streak across the full contribution history.
           longest = 0
           run = 0
-          for date in sorted(counts):
-              if counts[date] > 0:
+          longest_start = None
+          longest_end = None
+          run_start = None
+          for date_str in sorted(counts):
+              date = datetime.date.fromisoformat(date_str)
+              if counts[date_str] > 0:
+                  if run == 0:
+                      run_start = date
                   run += 1
-                  longest = max(longest, run)
+                  if run > longest:
+                      longest = run
+                      longest_start = run_start
+                      longest_end = date
               else:
                   run = 0
 
-          total = sum(counts.values())
-          svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="520" height="190" viewBox="0 0 520 190"><rect width="520" height="190" rx="12" fill="#1a1b27"/><text x="260" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#70a5fd">GitHub Contribution Streak</text><text x="260" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#a9b1d6">@{os.environ['GH_USER']}</text><text x="95" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#ffffff">{current}</text><text x="95" y="137" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#a9b1d6">CURRENT STREAK</text><text x="260" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#ffffff">{longest}</text><text x="260" y="137" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#a9b1d6">LONGEST STREAK</text><text x="425" y="112" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="700" fill="#ffffff">{total}</text><text x="425" y="137" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#a9b1d6">CONTRIBUTIONS</text><text x="260" y="168" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" fill="#565f89">Generated automatically by GitHub Actions</text></svg>'''
+          if not current:
+              current_start = current_end = today
+
+          def fmt(d):
+              return d.strftime("%b %-d")
+
+          # SVG: same visual idea as the reference — total on left,
+          # orange fire-ring current streak in the center, longest on right.
+          width, height = 760, 250
+          bg = "#141414"
+          orange = "#ff9800"
+          white = "#ffffff"
+          muted = "#9b9b9b"
+          divider = "#5a5a5a"
+          cx, cy, r = 380, 104, 49
+          circumference = 2 * 3.141592653589793 * r
+          dash = circumference * 0.84
+          gap = circumference - dash
+
+          # Flame icon above the ring.
+          flame = '''<path d="M380 35 C365 23 375 13 386 6 C383 18 397 20 398 31 C400 41 393 49 383 49 C375 49 369 44 369 37 C369 31 373 27 380 25 C378 31 380 34 380 35 Z" fill="#ff9800"/>'''
+
+          svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+          <rect width="{width}" height="{height}" rx="12" fill="{bg}"/>
+          <line x1="253" y1="42" x2="253" y2="208" stroke="{divider}" stroke-width="1"/>
+          <line x1="507" y1="42" x2="507" y2="208" stroke="{divider}" stroke-width="1"/>
+
+          <text x="126" y="126" text-anchor="middle" font-family="Arial,sans-serif" font-size="40" font-weight="700" fill="{white}">{total:,}</text>
+          <text x="126" y="159" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="{white}">Total Contributions</text>
+          <text x="126" y="190" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="{muted}">{html.escape(fmt(start))}, {start.year} - Present</text>
+
+          <circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{orange}" stroke-width="7" stroke-linecap="round" stroke-dasharray="{dash:.2f} {gap:.2f}" transform="rotate(-90 {cx} {cy})"/>
+          {flame}
+          <text x="{cx}" y="116" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="{white}">{current}</text>
+          <text x="{cx}" y="151" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="{orange}">Current Streak</text>
+          <text x="{cx}" y="182" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="{muted}">{fmt(current_start)} - {fmt(current_end)}</text>
+
+          <text x="634" y="126" text-anchor="middle" font-family="Arial,sans-serif" font-size="40" font-weight="700" fill="{white}">{longest}</text>
+          <text x="634" y="159" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" fill="{white}">Longest Streak</text>
+          <text x="634" y="190" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="{muted}">{fmt(longest_start) if longest_start else '-'} - {fmt(longest_end) if longest_end else '-'}</text>
+          </svg>'''
 
           os.makedirs("profile", exist_ok=True)
           with open("profile/streak.svg", "w", encoding="utf-8") as f:
@@ -68,5 +159,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add profile/streak.svg
-          git diff --cached --quiet || git commit -m "Update GitHub streak stats"
+          git diff --cached --quiet || git commit -m "Update fire-ring GitHub streak stats"
           git push
