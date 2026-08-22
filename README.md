@@ -53,7 +53,7 @@ DSA                   █████████░░░░░░░░░░ 
 </p>
 
 ### ⚡Hardware & Embedded
- <p>
+<p>
   <img src="https://img.shields.io/badge/FPGA-000000?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Xilinx%20Vivado-E01F27?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Vitis%20HLS-E01F27?style=for-the-badge"/>
@@ -83,7 +83,7 @@ DSA                   █████████░░░░░░░░░░ 
 
 <div align="center">
 
-<img src="./profile/streak.svg" alt="GitHub Contribution Streak" width="760"/>
+[![GitHub Streak](https://streak-stats.demolab.com?user=Coderchinmay-wq&theme=dark&hide_border=true)](https://git.io/streak-stats)
 
 ![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Coderchinmay-wq&theme=tokyo-night&hide_border=true)
 
