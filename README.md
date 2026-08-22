@@ -79,18 +79,15 @@ DSA                   █████████░░░░░░░░░░ 
 
 ---
 
-# 📊 GitHub Stats:
+# 📊 GitHub Activity
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Coderchinmay-wq&show_icons=true&theme=tokyonight&hide_border=true" height="180"/>
+[![GitHub Streak](https://streak-stats.demolab.com?user=Coderchinmay-wq&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Coderchinmay-wq&layout=compact&theme=tokyonight&hide_border=true" height="180"/>
+![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=Coderchinmay-wq&theme=tokyo-night&hide_border=true)
 
 </div>
-
-### 🔝 Top Contributed Repo
-![](https://github-contributor-stats.vercel.app/api?username=Coderchinmay-wq&limit=5&theme=dark&combine_all_yearly_contributions=true)
 
 ---
 
