@@ -7,7 +7,7 @@
 **Building hardware. Writing code. Connecting signals to intelligence.**
 
 <p>
-  <a href="www.linkedin.com/in/chinmay-yalawatti-938a8b312">
+  <a href="www.linkedin.com/in/chinmay-yalawatti">
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
   </a>
   <a href="YOUR_PORTFOLIO_URL">
