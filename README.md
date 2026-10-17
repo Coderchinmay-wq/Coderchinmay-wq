@@ -2,7 +2,7 @@
 
 # Hi, I'm Chinmay 👋
 
-### Electronics & Communication Engineer | FPGA/VLSI | Embedded Systems | GenAI Explorer
+### Electronics & Communication Engineer | FPGA | VLSI | Embedded Systems | GenAI Explorer
 
 **Building hardware. Writing code. Connecting signals to intelligence.**
 
