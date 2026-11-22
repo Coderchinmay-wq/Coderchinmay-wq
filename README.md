@@ -33,7 +33,6 @@ My goal is to bridge the gap between **hardware and intelligent software** — f
 
 ### 🔭 Currently Working On
 - 🟦 **FPGA / VLSI**: RTL design & verification
-- 🛰️ **Lunar mission browser** (Golden Dawn 2026)
 - ⚙️ **RTOS on embedded targets** (System-C-RTOS)
 - 🤖 Edge AI / ML for embedded systems
 
@@ -41,9 +40,9 @@ My goal is to bridge the gap between **hardware and intelligent software** — f
 <td width="50%" valign="top">
 
 ### 🌱 Learning & Exploring
-- 📡 5G / V2X communication
-- 🧮 Data Structures & Algorithms
+- 🎰 Digital Electronics
 - 🧠 AI / ML fundamentals
+- 🧮 Data Structures & Algorithms
 - 🧪 HLS with Vitis (C → hardware)
 
 </td>
